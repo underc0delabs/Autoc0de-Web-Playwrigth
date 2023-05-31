@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="3" time="10.224">
+    <testcase classname="Buy Product" name="Buy a SwagLabs product successfully" time="6.571">
+        <system-out><![CDATA[Given User launched SwagLabs application....................................passed
+When User logged in the app using username "standard_user" and password "secret_sauce".passed
+And User adds "Sauce Labs Fleece Jacket" product to the cart................passed
+And User enters Checkout details with "Ashish", "Ghosh", "1181".............passed
+And User completes Checkout process.........................................passed
+Then User should get the Confirmation of Order..............................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Login" name="Login to SwagLabs Application with Correct credentials" time="1.842">
+        <system-out><![CDATA[Given User launched SwagLabs application....................................passed
+When User logged in the app using username "standard_user" and password "secret_sauce".passed
+Then user should be able to log in..........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Login" name="Login to SwagLabs Application with Wrong credentials" time="1.56">
+        <system-out><![CDATA[Given User launched SwagLabs application....................................passed
+When User logged in the app using username "locked_out_user" and password "secret_sauce".passed
+Then User should not get logged in..........................................passed
+]]></system-out>
+    </testcase>
+</testsuite>

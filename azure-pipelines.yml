@@ -1,0 +1,27 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- script: |
+    mvn clean test
+  displayName: 'Execute Playwright Java tests'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: 'target/junitreport.xml'
+    testRunTitle: 'Test Report'
+  displayName: 'Publish Reports'
+
+- task: PublishCucumberReport@1
+  inputs:
+    jsonDir: './target'
+    outputPath: './target'
+    theme: 'bootstrap'
+    reportSuiteAsScenarios: true
+    name: 'PlaywrightwithCucumber'
+    title: 'Playwright with Cucumber'

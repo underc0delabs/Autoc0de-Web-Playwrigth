@@ -1,0 +1,294 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2022-12-02T23:57:40.428Z",
+        "line": 14,
+        "name": "Buy a SwagLabs product successfully",
+        "description": "",
+        "id": "buy-product;buy-a-swaglabs-product-successfully;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 133368000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepdefinitions.steps.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 6024650000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User launched SwagLabs application",
+            "match": {
+              "location": "stepdefinitions.steps.user_launched_swaglabs_application()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 167437000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User logged in the app using username \"standard_user\" and password \"secret_sauce\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"standard_user\"",
+                  "offset": 38
+                },
+                {
+                  "val": "\"secret_sauce\"",
+                  "offset": 67
+                }
+              ],
+              "location": "stepdefinitions.steps.user_logged_in_the_app_using_username_and_password(java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 72161000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "User adds \"Sauce Labs Fleece Jacket\" product to the cart",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Sauce Labs Fleece Jacket\"",
+                  "offset": 10
+                }
+              ],
+              "location": "stepdefinitions.steps.user_adds_product_to_the_cart(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 33451000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User enters Checkout details with \"Ashish\", \"Ghosh\", \"1181\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Ashish\"",
+                  "offset": 34
+                },
+                {
+                  "val": "\"Ghosh\"",
+                  "offset": 44
+                },
+                {
+                  "val": "\"1181\"",
+                  "offset": 53
+                }
+              ],
+              "location": "stepdefinitions.steps.user_enters_Checkout_details_with(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 57376000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User completes Checkout process",
+            "match": {
+              "location": "stepdefinitions.steps.user_completes_checkout_process()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3308000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "User should get the Confirmation of Order",
+            "match": {
+              "location": "stepdefinitions.steps.user_should_get_the_Confirmation_of_Order()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@End2End"
+          }
+        ]
+      }
+    ],
+    "name": "Buy Product",
+    "description": "",
+    "id": "buy-product",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/BuyProduct.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2022-12-02T23:57:47.020Z",
+        "line": 11,
+        "name": "Login to SwagLabs Application with Correct credentials",
+        "description": "",
+        "id": "login;login-to-swaglabs-application-with-correct-credentials;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 124478000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepdefinitions.steps.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1548338000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User launched SwagLabs application",
+            "match": {
+              "location": "stepdefinitions.steps.user_launched_swaglabs_application()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 149163000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User logged in the app using username \"standard_user\" and password \"secret_sauce\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"standard_user\"",
+                  "offset": 38
+                },
+                {
+                  "val": "\"secret_sauce\"",
+                  "offset": 67
+                }
+              ],
+              "location": "stepdefinitions.steps.user_logged_in_the_app_using_username_and_password(java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3488000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user should be able to log in",
+            "match": {
+              "location": "stepdefinitions.steps.logInSuccessful()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-12-02T23:57:48.889Z",
+        "line": 21,
+        "name": "Login to SwagLabs Application with Wrong credentials",
+        "description": "",
+        "id": "login;login-to-swaglabs-application-with-wrong-credentials;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 114392000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepdefinitions.steps.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1301170000,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "User launched SwagLabs application",
+            "match": {
+              "location": "stepdefinitions.steps.user_launched_swaglabs_application()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 134805000,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "User logged in the app using username \"locked_out_user\" and password \"secret_sauce\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"locked_out_user\"",
+                  "offset": 38
+                },
+                {
+                  "val": "\"secret_sauce\"",
+                  "offset": 69
+                }
+              ],
+              "location": "stepdefinitions.steps.user_logged_in_the_app_using_username_and_password(java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 4323000,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "User should not get logged in",
+            "match": {
+              "location": "stepdefinitions.steps.logInFailed()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@SmokeTest"
+          }
+        ]
+      }
+    ],
+    "name": "Login",
+    "description": "",
+    "id": "login",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/Login.feature",
+    "tags": []
+  }
+]
