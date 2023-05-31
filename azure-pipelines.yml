@@ -8,20 +8,20 @@ steps:
 
 - script: |
     mvn clean test
-  displayName: 'Execute Playwright Java tests'
+  displayName: 'Execute Autoc0de - Playwright tests'
 
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: 'target/junitreport.xml'
+    testResultsFiles: 'target/ExtentReport-HTML.html'
     testRunTitle: 'Test Report'
   displayName: 'Publish Reports'
 
 - task: PublishCucumberReport@1
   inputs:
-    jsonDir: './target'
+    jsonDir: './target/Reports'
     outputPath: './target'
     theme: 'bootstrap'
     reportSuiteAsScenarios: true
-    name: 'PlaywrightwithCucumber'
-    title: 'Playwright with Cucumber'
+    name: 'Autoc0dePlaywrigth'
+    title: 'Autoc0de Playwright'

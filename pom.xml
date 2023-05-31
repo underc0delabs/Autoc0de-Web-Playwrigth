@@ -2,38 +2,48 @@
     xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>playwright</groupId>
-    <artifactId>playwright</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <!-- General Information of the Framework -->
+    <name>Autoc0de Playwrigth - Automation Framework</name>
+    <description>Web application playwrigth automation framework</description>
+    <inceptionYear>2023</inceptionYear>
+
+    <!-- Developers of the automation project -->
+    <!-- Replace with your own data           -->
+
+    <developers>
+        <developer>
+            <id>jvitelli</id>
+            <name>Joel Vitelli</name>
+            <email>jvitelli92@gmail.com</email>
+            <timezone>Latam/Argentina</timezone>
+        </developer>
+    </developers>
+
+    <groupId>com.autoc0de.automation</groupId>
+    <artifactId>automation.AUTOC0DE</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
     <dependencies>
 	    <dependency>
 	      <groupId>com.microsoft.playwright</groupId>
 	      <artifactId>playwright</artifactId>
-	      <version>1.27.1</version>
+	      <version>1.34.0</version>
 	    </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>6.9.1</version>
+            <version>7.8.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
-            <version>6.9.1</version>
-            <scope>compile</scope>
+            <version>7.8.1</version>
+            <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports-cucumber4-adapter -->
         <dependency>
-            <groupId>com.aventstack</groupId>
-            <artifactId>extentreports-cucumber4-adapter</artifactId>
-            <version>1.2.1</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
-        <dependency>
-            <groupId>com.aventstack</groupId>
-            <artifactId>extentreports</artifactId>
-            <version>5.0.9</version>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-core</artifactId>
+            <version>7.8.1</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -50,6 +60,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.24</version>
+        </dependency>
+        <dependency>
+            <groupId>tech.grasshopper</groupId>
+            <artifactId>extentreports-cucumber7-adapter</artifactId>
+            <version>1.9.0</version>
         </dependency>
     </dependencies>
     <build>
@@ -83,7 +98,7 @@
                     <systemPropertyVariables>
                         <executionMode>Local</executionMode>
                         <browser>Chromium</browser>
-                        <applicationUrl>https://www.saucedemo.com/</applicationUrl>
+                        <applicationUrl>https://underc0de.org/</applicationUrl>
                         <remoteUrl></remoteUrl>                        
                     </systemPropertyVariables>
                 </configuration>
