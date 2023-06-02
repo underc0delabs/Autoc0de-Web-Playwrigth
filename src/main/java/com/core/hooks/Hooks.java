@@ -18,10 +18,6 @@ public abstract class Hooks {
     public static Browser browser;
     public static Page page;
 
- //   static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
- //   static int width = (int)screenSize.getWidth();
- //   static int heigth = (int)screenSize.getHeight();
-
     public static Page createPlaywrightPageInstance(String browserTypeAsString) {
         BrowserType browserType = null;
         switch (browserTypeAsString) {
@@ -38,7 +34,7 @@ public abstract class Hooks {
         if (browserType == null) {
             throw new IllegalArgumentException("Could not launch a browser for type " + browserTypeAsString);
         }
-        browser = browserType.launch(new BrowserType.LaunchOptions().setHeadless(false));
+        browser = browserType.launch(new BrowserType.LaunchOptions().setHeadless(true));
         BrowserContext context = browser.newContext(new Browser.NewContextOptions().setViewportSize(1500,800));
         page= context.newPage();
         return page;
