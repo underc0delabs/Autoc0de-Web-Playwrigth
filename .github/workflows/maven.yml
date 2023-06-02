@@ -16,7 +16,7 @@ jobs:
     - name: Set up JDK 20
       uses: actions/setup-java@v2
       with:
-        java-version: '20.0.1'
+        java-version: '19.0.2'
         distribution: 'adopt'
     - name: Execute Tests
       run: mvn clean test
