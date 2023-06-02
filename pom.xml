@@ -75,6 +75,23 @@
             <version>1.9.0</version>
         </dependency>
     </dependencies>
+    <profiles>
+        <profile>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <id>Local</id>
+            <properties>
+                <mode>Local</mode>
+            </properties>
+        </profile>
+        <profile>
+            <id>Grid</id>
+            <properties>
+                <mode>Grid</mode>
+            </properties>
+        </profile>
+    </profiles>
     <build>
         <plugins>
             <plugin>
@@ -104,10 +121,11 @@
                         <include>**/*Runner*.class</include>
                     </includes>
                     <systemPropertyVariables>
-                        <executionMode>Local</executionMode>
+                        <!--suppress UnresolvedMavenProperty -->
+                        <executionMode>${mode}</executionMode>
                         <browser>Chromium</browser>
                         <applicationUrl>https://underc0de.org/</applicationUrl>
-                        <remoteUrl></remoteUrl>                        
+                        <remoteUrl/>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>

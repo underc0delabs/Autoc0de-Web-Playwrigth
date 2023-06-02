@@ -35,12 +35,12 @@ public abstract class Hooks {
             throw new IllegalArgumentException("Could not launch a browser for type " + browserTypeAsString);
         }
         if (System.getProperty("executionMode").equals("Local")){
-            browser = browserType.launch(new BrowserType.LaunchOptions().setHeadless(true));
+            browser = browserType.launch(new BrowserType.LaunchOptions().setHeadless(false));
             BrowserContext context = browser.newContext(new Browser.NewContextOptions().setViewportSize(1500,800));
             page= context.newPage();
 
         } else {
-            browser = browserType.launch(new BrowserType.LaunchOptions().setHeadless(false));
+            browser = browserType.launch(new BrowserType.LaunchOptions().setHeadless(true));
             BrowserContext context = browser.newContext(new Browser.NewContextOptions().setViewportSize(1920,1080));
             page= context.newPage();
         }
