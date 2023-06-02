@@ -12,16 +12,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  Execute Tests:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up JDK 11
+    - name: Set up JDK 
       uses: actions/setup-java@v3
       with:
-        java-version: '11'
+        java-version: '20.0.1'
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
