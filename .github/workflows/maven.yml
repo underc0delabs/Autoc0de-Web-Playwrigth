@@ -19,7 +19,7 @@ jobs:
         java-version: '19.0.2'
         distribution: 'adopt'
     - name: Execute Tests
-      run: mvn clean test
+      run: mvn clean install
     - name: Upload Test Results
       if: always()
       uses: actions/upload-artifact@v2.2.2
