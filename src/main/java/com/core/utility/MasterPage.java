@@ -143,4 +143,8 @@ public abstract class MasterPage extends Hooks {
         page.frameLocator(iFrame);
     }
 
+    public void auto_goBack(){
+        page.goBack();
+    }
+
 }
