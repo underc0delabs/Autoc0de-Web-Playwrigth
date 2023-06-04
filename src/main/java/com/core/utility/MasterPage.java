@@ -146,5 +146,8 @@ public abstract class MasterPage extends Hooks {
     public void auto_goBack(){
         page.goBack();
     }
+    public void auto_sendKeys(String locator, String key){
+        page.locator(locator).press(key);
+    }
 
 }
