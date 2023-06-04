@@ -1,7 +1,9 @@
 package com.core.utility;
 
+import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.options.MouseButton;
+import com.microsoft.playwright.options.SelectOption;
 import com.microsoft.playwright.options.WaitForSelectorState;
 import com.core.hooks.Hooks;
 
@@ -148,6 +150,21 @@ public abstract class MasterPage extends Hooks {
     }
     public void auto_sendKeys(String locator, String key){
         page.locator(locator).press(key);
+    }
+
+    public void auto_selectOptionFromLabel(String locator,String value){
+        ElementHandle select = page.querySelector(locator);
+        select.selectOption(new SelectOption().setLabel(value));
+    }
+
+    public void auto_selectOptionFromIndex(String locator,int value){
+        ElementHandle select = page.querySelector(locator);
+        select.selectOption(new SelectOption().setIndex(value));
+    }
+
+    public void auto_selectOptionFromValue(String locator,String value){
+        ElementHandle select = page.querySelector(locator);
+        select.selectOption(new SelectOption().setValue(value));
     }
 
 }
