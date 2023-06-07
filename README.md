@@ -1,11 +1,6 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)[![Execute Test Manualy](https://github.com/underc0delabs/Autoc0de-Web-Playwrigth/actions/workflows/Tests.yml/badge.svg?branch=master)](https://github.com/underc0delabs/Autoc0de-Web-Playwrigth/actions/workflows/Tests.yml)
 
-
-# Hi, I'm Joel! 👋
-
-
-
 # Autoc0de - Playwrigth
 
 ![Logo](img/autoc0de-2-0.png)
