@@ -40,11 +40,11 @@ This framework is maked based on several technologies that are detailed in the n
 
 This Framework includes the following technologies:
 
-- [Maven] - Java project management and construction tool (Latest)
-- [Java] - OO programming language. (JDK 20 - latest)
-- [Playwright] - Automation tool Web, Mobile, API.
-- [Cucumber] - Herramienta que nos permite generar scripts de prueba utilizando tests cases escritos en Gherkin **(Archivos.feature)**.
-- [Gherkin] - Tool that allows us to generate tests scripts using tests cases written in Gherkin **(Files.feature)**.
+- [Maven] - Java project management and construction tool (3.9.1)
+- [Java] - OO programming language. (JDK 15.0.2)
+- [Playwrigth] - Automation tool Web, Mobile, API.
+- [Cucumber] - Tool that allows us to generate test scripts using test cases written in Gherkin **(Files.feature)**.
+- [Gherkin] - Communication language model that allows us to work with BDD methodology
 - [Extent Report] - Intuitive reporter and very nice to look at.
 - [JUnit] - Automation tool that will allow us to create Runners and use notations.
 
@@ -60,13 +60,13 @@ The technologies mentioned above are integrated into the framework through MAVEN
 | Technology                      | Maven version |Link Maven repo                                                                    |
 |---------------------------------|---------------|-----------------------------------------------------------------------------------|
 | Playwright Main Library         | 1.34.0        |https://mvnrepository.com/artifact/com.microsoft.playwright/playwright             |
-| JUnit maven                     | 7.8.1         |https://mvnrepository.com/artifact/io.cucumber/cucumber-junit                      |
-| Cucumber-java                   | 7.8.1         |https://mvnrepository.com/artifact/io.cucumber/cucumber-java                       |
-| Cucumber-core                   | 7.8.1         |https://mvnrepository.com/artifact/io.cucumber/cucumber-core                       |
-| Extent Report Adapter 7         | 1.9.0         |https://mvnrepository.com/artifact/com.aventstack/extentreports                    |
-| SLF4J LOG4J 12                  | 2.0.3         |https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12                         |
-| SLF4J API                       |2.0.3          |https://mvnrepository.com/artifact/org.slf4j/slf4j-api                             |
-| ExtentReports Cucumber7 Adapter | 1.9.0         |https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter|
+| JUnit maven                     | 7.12.1        |https://mvnrepository.com/artifact/io.cucumber/cucumber-junit                      |
+| Cucumber-java                   | 7.12.1        |https://mvnrepository.com/artifact/io.cucumber/cucumber-java                       |
+| Cucumber-core                   | 7.12.1        |https://mvnrepository.com/artifact/io.cucumber/cucumber-core                       |
+| Assertj-core                    | 3.24.2        |https://mvnrepository.com/artifact/org.assertj/assertj-core                    |
+| SLF4J LOG4J 12                  | 2.0.7         |https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12                         |
+| SLF4J API                       | 2.0.7         |https://mvnrepository.com/artifact/org.slf4j/slf4j-api                             |
+| ExtentReports Cucumber7 Adapter | 1.13.0        |https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter|
 
 **Remember to keep these versions of Maven up to date as much as possible. If the project ever stops working, it could be because one of the versions found here has been deprecated / moved. However, it must be remembered that at the date this project was uploaded, all versions are the most current**
 
@@ -249,7 +249,7 @@ If you want to use this Framework to automate your own web application (of cours
 
 [Maven]: <https://maven.apache.org/download.cgi>
 [Java]: <https://https://www.oracle.com/java/technologies/javase/jdk20-archive-downloads.html>
-[Playrigth]: <https://https://playwright.dev/java/docs/intro>
+[Playwrigth]: <https://https://playwright.dev/java/docs/intro>
 [Cucumber]: <https://cucumber.io/>
 [Gherkin]: <https://cucumber.io/docs/gherkin/reference/>
 [Extent Report]: <https://www.extentreports.com/>
