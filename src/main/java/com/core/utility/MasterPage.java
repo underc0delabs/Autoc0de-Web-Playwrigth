@@ -50,7 +50,7 @@ public abstract class MasterPage extends Hooks {
         page.dblclick(locator);
     }
 
-    public void auto_setClickElementAndHold (String locator){
+    public void auto_setClickElementAndHold(String locator){
         page.locator(locator).click((new Locator.ClickOptions()
                 .setButton(MouseButton.RIGHT)
                 .setDelay(5000)));
@@ -137,7 +137,7 @@ public abstract class MasterPage extends Hooks {
         page.locator(locator).scrollIntoViewIfNeeded();
     }
 
-    public void scrollToElementJS(int x, int y) {
+    public void auto_scrollToElementJS(int x, int y) {
         page.evaluate("window.scrollBy(" + x + ", " + y + ");");
     }
 
@@ -148,6 +148,7 @@ public abstract class MasterPage extends Hooks {
     public void auto_goBack(){
         page.goBack();
     }
+    
     public void auto_sendKeys(String locator, String key){
         page.locator(locator).press(key);
     }
