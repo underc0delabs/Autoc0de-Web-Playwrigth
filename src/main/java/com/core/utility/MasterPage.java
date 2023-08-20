@@ -6,6 +6,8 @@ import com.microsoft.playwright.options.MouseButton;
 import com.microsoft.playwright.options.SelectOption;
 import com.microsoft.playwright.options.WaitForSelectorState;
 import com.core.hooks.Hooks;
+import org.assertj.core.api.SoftAssertions;
+import org.junit.Assert;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -13,6 +15,8 @@ import java.awt.datatransfer.ClipboardOwner;
 import java.awt.datatransfer.StringSelection;
 
 public abstract class MasterPage extends Hooks {
+
+    SoftAssertions softAssertions = new SoftAssertions();
     public void auto_openURLInBrowser(){
         try {
             page = createPlaywrightPageInstance(System.getProperty("browser"));
@@ -168,4 +172,24 @@ public abstract class MasterPage extends Hooks {
         select.selectOption(new SelectOption().setValue(value));
     }
 
+    public void auto_verifyVisibility(String locator){
+        auto_waitForElementVisibility(locator);
+        Assert.assertTrue("El elemento no es visible", auto_isElementVisible(locator));
+    }
+
+    public void auto_verifyVisibilities(String ... locators){
+        for (String locator : locators) {
+            auto_waitForElementVisibility(locator);
+            softAssertions.assertThat(locator).as("El elemento no se visualiza correctamente").isVisible();
+        }
+        softAssertions.assertAll();
+    }
+
+    public void auto_verifyInvisibilities(String ... locators){
+        for (String locator : locators) {
+            auto_waitForElementInvisibility(locator);
+            softAssertions.assertThat(auto_isElementVisible(locator)).as("El elemento no es invisible").isFalse();
+        }
+        softAssertions.assertAll();
+    }
 }

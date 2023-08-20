@@ -61,3 +61,4 @@ target
 
 ### Git Large File Storage
 .gitattributes
+/target/
