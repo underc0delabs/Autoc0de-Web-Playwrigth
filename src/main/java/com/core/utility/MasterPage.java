@@ -191,7 +191,7 @@ public abstract class MasterPage extends Hooks {
     public void auto_verifyVisibilities(String... locators) {
         for (String locator : locators) {
             auto_waitForElementVisibility(locator);
-            softAssertions.assertThat(page.locator(locator).isVisible()).as("El elemento no se visualiza correctamente").isTrue();
+            softAssertions.assertThat(page.locator(locator).isVisible()).as("Element is not displayed").isTrue();
         }
         softAssertions.assertAll();
     }
@@ -200,7 +200,7 @@ public abstract class MasterPage extends Hooks {
         auto_waitForElementsVisibilities(locatorList);
         List<ElementHandle> elements = page.locator(locatorList).elementHandles();
         for (ElementHandle element : elements) {
-            softAssertions.assertThat(element.isVisible()).as("El elemento no es visible");
+            softAssertions.assertThat(element.isVisible()).as("Element is not displayed");
         }
         softAssertions.assertAll();
     }
@@ -208,7 +208,7 @@ public abstract class MasterPage extends Hooks {
     public void auto_verifyInvisibilities(String... locators) {
         for (String locator : locators) {
             auto_waitForElementInvisibility(locator);
-            softAssertions.assertThat(page.locator(locator).isHidden()).as("El elemento no es invisible").isTrue();
+            softAssertions.assertThat(page.locator(locator).isHidden()).as("Element is not invisible").isTrue();
         }
         softAssertions.assertAll();
     }
@@ -217,25 +217,25 @@ public abstract class MasterPage extends Hooks {
         auto_waitForElementsVisibilities(locatorList);
         List<ElementHandle> elements = page.locator(locatorList).elementHandles();
         for (ElementHandle element : elements) {
-            softAssertions.assertThat(element.isVisible()).as("El elemento no es invisible").isFalse();
+            softAssertions.assertThat(element.isVisible()).as("Element is not invisible").isFalse();
         }
         softAssertions.assertAll();
     }
 
-    public String auto_rempalceSpacesLocator(String value) {
-        return value.replaceAll(" ","_");
+    public String auto_repalceSpacesLocator(String locator, String value) {
+        return locator.replaceAll(" ",value);
     }
-    public String auto_addSpacesLocator(String value) {
-        return value.replaceAll(" ","");
+    public String auto_deleteSpacesLocator(String locator) {
+        return locator.replaceAll(" ","");
     }
     public void auto_verifyText(String xpath, String expectedText) {
         ElementHandle element = (ElementHandle) page.locator(xpath).first();
         if (element == null) {
-            throw new AssertionError("Elemento no encontrado con XPath: " + xpath);
+            throw new AssertionError("Element not found withn XPath: " + xpath);
         }
         String actualText = element.textContent();
         if (!actualText.equals(expectedText)) {
-            throw new AssertionError("Texto no coincide. Esperado: " + expectedText + ", Actual: " + actualText);
+            throw new AssertionError("Text does not match. Expected: " + expectedText + ", Actual: " + actualText);
         }
     }
 
@@ -247,21 +247,19 @@ public abstract class MasterPage extends Hooks {
     public String auto_returnPropertyValue(String locator, String property) {
         auto_waitForElementsVisibilities(locator);
         return page.locator(locator).evaluate("element => window.getComputedStyle(element).getPropertyValue('"+property+"')").toString();
-
     }
 
-    public void auto_verifyTextMatchInLists(String parentXPath, List<String> textList) {
+    public void auto_verifyTextMatchInList(String parentXPath, List<String> textList) {
         for (String text : textList) {
             String completeXPath = String.format(parentXPath, text);
-            auto_waitForElementsVisibilities(completeXPath); // Espera la visibilidad para el XPath completo
+            auto_waitForElementsVisibilities(completeXPath);
             List<ElementHandle> elements = page.locator(completeXPath).elementHandles();
             softAssertions.assertThat(elements.stream().anyMatch(x -> {
                 String innerText = x.textContent();
-                System.out.println("Comparando: " + innerText + " con " + text);
+                System.out.println("Comparing: " + innerText + " with " + text);
                 return innerText != null && innerText.contains(text);
-            })).as("No se muestra el titulo de la sección: " + text).isTrue();
+            })).as("Element not displayed: " + text).isTrue();
         }
-
         softAssertions.assertAll();
     }
 }
