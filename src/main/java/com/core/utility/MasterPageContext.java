@@ -1,12 +1,12 @@
 package com.core.utility;
 
+import com.microsoft.playwright.Page;
+import org.assertj.core.api.SoftAssertions;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.options.MouseButton;
 import com.microsoft.playwright.options.SelectOption;
 import com.microsoft.playwright.options.WaitForSelectorState;
-import com.core.hooks.Hooks;
-import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
 
 import java.awt.*;
@@ -14,10 +14,13 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.ClipboardOwner;
 import java.awt.datatransfer.StringSelection;
 
-public abstract class MasterPage extends Hooks implements MasterPageContext {
+import static com.core.hooks.Hooks.createPlaywrightPageInstance;
+import static com.core.hooks.Hooks.*;
 
-    static SoftAssertions softAssertions = new SoftAssertions();
-    public static void auto_openURLInBrowser(){
+public interface MasterPageContext {
+    SoftAssertions softAssertions = new SoftAssertions();
+
+    default Page auto_newPage(){
         try {
             page = createPlaywrightPageInstance(System.getProperty("browser"));
             page.navigate(System.getProperty("applicationUrl"));
@@ -25,169 +28,161 @@ public abstract class MasterPage extends Hooks implements MasterPageContext {
         catch (Exception e) {
             e.printStackTrace();
         }
+        return page;
     }
 
-    public static void auto_openNewURLInBrowser(String url){
-        try {
-            page = createPlaywrightPageInstance(System.getProperty("browser"));
-            page.navigate(url);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static String auto_getCurrentUrl(){
+    default String auto_getCurrentUrl(Page page){
         return page.url();
     }
 
-    public static String auto_getPageTitle(){
+    default String auto_getPageTitle(Page page){
         return page.title();
     }
 
-    public static void auto_setClickElement(String locator){
+    default void auto_setClickElement(String locator, Page page){
         page.click(locator);
+
     }
 
-    public static void auto_setDoubleClickElement(String locator){
+    default void auto_setDoubleClickElement(String locator, Page page){
         page.dblclick(locator);
     }
 
-    public static void auto_setClickElementAndHold(String locator){
+    default void auto_setClickElementAndHold(String locator, Page page){
         page.locator(locator).click((new Locator.ClickOptions()
                 .setButton(MouseButton.RIGHT)
                 .setDelay(5000)));
     }
 
-    public static void auto_setTextToInput(String locator, String value){
+    default void auto_setTextToInput(String locator, String value, Page page){
         page.locator(locator).clear();
         page.fill(locator, value);
     }
 
-    public static void auto_setTextToInputWithoutClear(String locator, String value){
+    default void auto_setTextToInputWithoutClear(String locator, String value, Page page){
         page.fill(locator, value);
     }
 
-    public static void auto_clearInput(String locator){
+    default void auto_clearInput(String locator, Page page){
         page.locator(locator).clear();
     }
 
-    public static String auto_getElementText(String locator){
+    default String auto_getElementText(String locator, Page page){
         return page.locator(locator).textContent();
     }
 
-    public static String auto_getInputValue(String locator){
+    default String auto_getInputValue(String locator, Page page){
         return page.locator(locator).inputValue();
     }
 
-    public static void auto_selectCheckbox(String locator){
+    default void auto_selectCheckbox(String locator, Page page){
         page.locator(locator).isVisible();
         if (!page.locator(locator).isChecked()){
             page.locator(locator).check();
         }
     }
 
-    public static void auto_deselectCheckbox(String locator){
+    default void auto_deselectCheckbox(String locator, Page page){
         page.locator(locator).isVisible();
         if (page.locator(locator).isChecked()){
             page.locator(locator).uncheck();
         }
     }
 
-    public static boolean auto_isElementVisible(String locator){
+    default boolean auto_isElementVisible(String locator, Page page){
         return page.locator(locator).isVisible();
     }
 
-    public static boolean auto_isInputEmpty(String locator){
+    default boolean auto_isInputEmpty(String locator, Page page){
         return page.locator(locator).getAttribute("value").isEmpty();
     }
 
-    public static void auto_waitForElementPresent(String locator){
+    default void auto_waitForElementPresent(String locator, Page page){
         page.locator(locator).waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.ATTACHED));
     }
 
-    public static void auto_waitForElementVisibility(String locator){
+    default void auto_waitForElementVisibility(String locator, Page page){
         page.locator(locator).waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
     }
 
-    public static void auto_waitForElementInvisibility(String locator){
+    default void auto_waitForElementInvisibility(String locator, Page page){
         page.locator(locator).waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.HIDDEN));
     }
 
-    public static void auto_setTextToClipboard(String value){
+    default void auto_setTextToClipboard(String value, Page page){
         StringSelection stringSelection = new StringSelection(value);
         Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
         clpbrd.setContents(stringSelection, (ClipboardOwner)null);
     }
 
-    public static boolean auto_isElementEnabled(String locator){
+    default boolean auto_isElementEnabled(String locator, Page page){
         return page.locator(locator).isEnabled();
     }
 
-    public static boolean auto_isElementEditable(String locator){
+    default boolean auto_isElementEditable(String locator, Page page){
         return page.locator(locator).isEditable();
     }
 
-    public static String auto_getAttribute(String locator, String attribute){
+    default String auto_getAttribute(String locator, String attribute, Page page){
         return page.locator(locator).getAttribute(attribute);
     }
 
-    public static void auto_HoverElement(String locator){
+    default void auto_HoverElement(String locator, Page page){
         page.locator(locator).hover();
     }
 
-    public static void auto_ScrollToElement(String locator){
+    default void auto_ScrollToElement(String locator, Page page){
         page.locator(locator).scrollIntoViewIfNeeded();
     }
 
-    public static void auto_scrollToElementJS(int x, int y) {
+    default void auto_scrollToElementJS(int x, int y, Page page) {
         page.evaluate("window.scrollBy(" + x + ", " + y + ");");
     }
 
-    public static void auto_switchToIframe(String iFrame){
+    default void auto_switchToIframe(String iFrame, Page page){
         page.frameLocator(iFrame);
     }
 
-    public static void auto_goBack(){
+    default void auto_goBack(Page page){
         page.goBack();
     }
-    
-    public static void auto_sendKeys(String locator, String key){
+
+    default void auto_sendKeys(String locator, String key, Page page){
         page.locator(locator).press(key);
     }
 
-    public static void auto_selectOptionFromLabel(String locator,String value){
+    default void auto_selectOptionFromLabel(String locator,String value, Page page){
         ElementHandle select = page.querySelector(locator);
         select.selectOption(new SelectOption().setLabel(value));
     }
 
-    public static void auto_selectOptionFromIndex(String locator,int value){
+    default void auto_selectOptionFromIndex(String locator,int value, Page page){
         ElementHandle select = page.querySelector(locator);
         select.selectOption(new SelectOption().setIndex(value));
     }
 
-    public static void auto_selectOptionFromValue(String locator,String value){
+    default void auto_selectOptionFromValue(String locator,String value, Page page){
         ElementHandle select = page.querySelector(locator);
         select.selectOption(new SelectOption().setValue(value));
     }
 
-    public static void auto_verifyVisibility(String locator){
-        auto_waitForElementVisibility(locator);
-        Assert.assertTrue("El elemento no es visible", auto_isElementVisible(locator));
+    default void auto_verifyVisibility(String locator, Page page){
+        MasterPage.auto_waitForElementVisibility(locator);
+        Assert.assertTrue("El elemento no es visible", MasterPage.auto_isElementVisible(locator));
     }
 
-    public static void auto_verifyVisibilities(String ... locators){
+    default void auto_verifyVisibilities(Page page, String ... locators){
         for (String locator : locators) {
-            auto_waitForElementVisibility(locator);
+            MasterPage.auto_waitForElementVisibility(locator);
             softAssertions.assertThat(locator).as("El elemento no se visualiza correctamente").isVisible();
         }
         softAssertions.assertAll();
     }
 
-    public static void auto_verifyInvisibilities(String ... locators){
+    default void auto_verifyInvisibilities(Page page, String ... locators){
         for (String locator : locators) {
-            auto_waitForElementInvisibility(locator);
-            softAssertions.assertThat(auto_isElementVisible(locator)).as("El elemento no es invisible").isFalse();
+            MasterPage.auto_waitForElementInvisibility(locator);
+            softAssertions.assertThat(MasterPage.auto_isElementVisible(locator)).as("El elemento no es invisible").isFalse();
         }
         softAssertions.assertAll();
     }

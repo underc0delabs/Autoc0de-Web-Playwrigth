@@ -2,18 +2,7 @@ package com.core.hooks;
 
 import com.microsoft.playwright.*;
 
-import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
-import io.cucumber.java.Scenario;
-
-import java.awt.*;
-import java.util.Arrays;
-
 public abstract class Hooks {
-
-    /**
-     * Page
-     */
 
     public static Browser browser;
     public static Page page;

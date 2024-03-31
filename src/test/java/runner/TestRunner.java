@@ -14,8 +14,7 @@ import io.cucumber.junit.CucumberOptions;
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
         features = "src/test/resources/features/",
-        glue = {"steps","runner"},
-        tags =  "@ExampleTag"
+        glue = {"steps","runner"}
         
 )
 public class TestRunner {
