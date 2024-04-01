@@ -123,7 +123,7 @@ In the ```Technological Stack``` section, we will find links that will take us t
 * JDK
 
 1. Install Maven 3.9.3
-2. Install Java and JDK (Greater 20.0.1 or latest)
+2. Install Java and JDK (15.0.2 recomendated)
 3. Expose Maven and Java in environment variables (M2_HOME and JAVA_HOME)
 4. Inside the root path of the newly cloned project, open the console and execute the following maven command: ```mvn install -DskipTests```. This will download all the necessary dependencies found in the ```pom.xml``` file
 
@@ -138,7 +138,7 @@ At this time we should be running the automatic tests on Google chrome browser (
 
 ## How to change the Suite that is going to be executed
 
-To change the scenario we want to run, we have to modify the ```@Tag``` of [Cucumber] in the file ```TestRunner``` indicated in the following images:
+To change the scenario we want to run, we have to modify the ```@Tag``` of [Cucumber] in the file ```pom.xml``` at ```28 code line``` indicated in the following images:
 
 ```File TestRunner.class```
 
