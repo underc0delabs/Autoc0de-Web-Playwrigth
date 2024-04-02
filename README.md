@@ -212,7 +212,7 @@ Example of the enviroment and system information
 If you want to use this Framework to automate your own web application (of course), you only have to follow the steps that I leave you below. Let's go to that
 
 
-1. Open the ```pom.xml``` file that is in the root of the project, then, look for it property called ```<navigateUrl> https://underc0de.org/ </navigateUrl>``` in the ```29 code line``` and replace that address with that of your web application
+1. Open the ```pom.xml``` file that is in the root of the project, then, look for it property called ```<navigateUrl>https://underc0de.org/</navigateUrl>``` in the ```29 code line``` and replace that address with that of your web application
 
 <p align="center">
   <img src="img/pom.png"/>
@@ -222,7 +222,7 @@ If you want to use this Framework to automate your own web application (of cours
 2. Look for the file called ```pom.xml``` (See architecture) and locate the ```28 code line```. Replace ```@ExampleTag``` with the desired tag
 
 <p align="center">
-  <img src="img/tag.png"/>
+  <img src="img/tag1.png"/>
 </p>
 
 3. Now, add your features files in the folder ```features```, yout step definition in the folder ```steps```, and yout constants and functions in the folder ```pages```
